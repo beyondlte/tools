@@ -1,0 +1,26 @@
+http://confluence.corp.intusurg.com/display/TestEngEncyclopedia/How+to+create+a+manufacturing+build
+
+Create folder System_Software_Build
+copy src tree to this folder
+
+run_build_compiled_matlab.bat
+data_build_status.bat
+all_build_status.bat
+check all_build_status.html
+
+gen_DistKit.bat System_Software_Build ..\System_Software_Build_Complete
+# gen_DistKit.bat esysg7x_2017_07_13_T00_00 ..\esysg7x_2017_07_13_T00_00_Complete
+
+go to esysg7x_2017_07_13_T00_00_Complete folder
+xcopy /E /I ..\esysg7x_2017_07_13_T00_00_Complete\esysg7x_2017_07_13_T00_00 ..\esysg7x_2017_07_13_T00_00_Complete\esysg7x_2017_07_13_T00_00_MFG
+
+xcopy /E /I /Y ..\esysg7x_2017_07_13_T00_00_Complete\esysg7x_2017_07_13_T00_00_MFG_PATCH ..\esysg7x_2017_07_13_T00_00_Complete\esysg7x_2017_07_13_T00_00_MFG 
+
+
+
+
+
+Right-click on the tree you used to create the release, TortoiseSVN->Branch/tag, 
+to path: http://iliad/svn/repos/endoluminal/esysg7x/tags/mfg/NAME_OF_YOUR_TAG, and select either Working copy 
+(if you have local modifications in your tree that are not part of a linear SVN history), 
+or HEAD or a Specific revision in repository if the build you created was identical to what was checked into SVN at a specific revision.
